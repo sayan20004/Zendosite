@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-brand-yellow text-brand-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black leading-[1.08] tracking-tight text-brand-black;
+  }
+}
+
+/* Lottie Player placeholder styles */
+.lottie-placeholder {
+  @apply w-full h-full min-h-[300px] flex items-center justify-center bg-brand-black/5 rounded-3xl border-2 border-dashed border-brand-black/20;
+}

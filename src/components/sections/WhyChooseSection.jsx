@@ -1,4 +1,5 @@
 import { LottiePlaceholder } from "../ui/LottiePlaceholder";
+import cyclingAnimation from "../../assets/cycling.json";
 
 export function WhyChooseSection({ id }) {
   const features = [
@@ -26,6 +27,7 @@ export function WhyChooseSection({ id }) {
           {/* Visual Content */}
           <div className="gsap-fade-in w-full h-[400px] lg:h-[500px] relative order-2 lg:order-1">
             <LottiePlaceholder 
+              src={cyclingAnimation}
               fallbackText="Cycling Mascot Animation" 
               className="rounded-[3rem] border-4 border-brand-black shadow-[-8px_8px_0px_0px_rgba(0,0,0,1)] bg-brand-white"
             />

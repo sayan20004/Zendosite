@@ -1,4 +1,5 @@
 import { LottiePlaceholder } from "../ui/LottiePlaceholder";
+import workingAnimation from "../../assets/working.json";
 
 export function AboutSection({ id }) {
   return (
@@ -23,6 +24,7 @@ export function AboutSection({ id }) {
         {/* Visual Content */}
         <div className="gsap-fade-in w-full h-[400px] lg:h-[600px] relative order-1 lg:order-2">
           <LottiePlaceholder 
+            src={workingAnimation}
             fallbackText="Celebration Mascot Animation" 
             className="rounded-[3rem] border-4 border-brand-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-brand-yellow/30"
           />

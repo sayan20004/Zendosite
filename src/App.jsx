@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { Navbar } from './components/sections/Navbar'; // Import the new component
 import { HeroSection } from './components/sections/HeroSection';
 import { WhyChooseSection } from './components/sections/WhyChooseSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -14,10 +15,7 @@ function App() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Background color transitions based on sections
       const sections = gsap.utils.toArray('section');
-      
-      // Default to yellow
       let bgColors = ['#FFD60A', '#C5B8F0', '#FF9966', '#FFD60A']; 
 
       sections.forEach((section, i) => {
@@ -72,6 +70,7 @@ function App() {
 
   return (
     <main ref={mainRef} className="w-full min-h-screen transition-colors duration-300">
+      <Navbar /> {/* Add Navbar here */}
       <HeroSection id="home" />
       <WhyChooseSection id="why-choose" />
       <AboutSection id="about" />

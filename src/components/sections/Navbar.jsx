@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,10 +17,14 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Why Us', href: '#why-choose' },
-    { name: 'About', href: '#about' },
+    { name: 'Home', href: '/', isExternal: false },
+    { name: 'Why Us', href: '#why-choose', isExternal: false },
+    { name: 'About', href: '/about', isExternal: false },
   ];
+
+  const handleNavClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <nav 
@@ -34,23 +40,33 @@ export const Navbar = () => {
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 hover:opacity-75 transition-opacity">
           <div className="w-10 h-10 bg-brand-black rounded-xl flex items-center justify-center rotate-3 hover:rotate-0 transition-transform duration-300">
             <span className="text-brand-white font-black text-xl">Z</span>
           </div>
           <span className="font-black text-2xl tracking-tighter hidden sm:block">Zendo.</span>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="font-bold text-sm uppercase tracking-widest hover:text-brand-orange-red transition-colors"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-bold text-sm uppercase tracking-widest hover:text-brand-orange-red transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="font-bold text-sm uppercase tracking-widest hover:text-brand-orange-red transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <Button className="px-6 py-2 text-base">
             Contact
@@ -74,19 +90,30 @@ export const Navbar = () => {
       >
         <div className="flex flex-col gap-6">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="font-black text-3xl tracking-tighter hover:translate-x-2 transition-transform"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={handleNavClick}
+                className="font-black text-3xl tracking-tighter hover:translate-x-2 transition-transform"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                onClick={handleNavClick}
+                className="font-black text-3xl tracking-tighter hover:translate-x-2 transition-transform"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <hr className="border-brand-black/5" />
           <Button 
             className="w-full justify-between"
-            onClick={() => setIsOpen(false)}
+            onClick={handleNavClick}
           >
             Start a Project
           </Button>

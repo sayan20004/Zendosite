@@ -10,7 +10,7 @@ export function AboutSection({ id }) {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Text Content */}
         <div className="flex flex-col items-start gap-8 z-10 order-2 lg:order-1">
-          <h2 className="gsap-slide-up text-5xl md:text-7xl lg:text-[6.5rem] leading-[0.95] -tracking-[0.03em] uppercase">
+          <h2 className="gsap-slide-up text-5xl md:text-7xl lg:text-[5rem] leading-[0.95] -tracking-[0.03em] uppercase">
             You'll Crave <br />
             Doing Your <br />
             Work

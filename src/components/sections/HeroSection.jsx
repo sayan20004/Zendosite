@@ -14,7 +14,7 @@ export function HeroSection({ id }) {
         <div className="flex flex-col items-start gap-8 z-10">
           <Badge className="gsap-slide-up">Zendo App</Badge>
 
-          <h1 className="gsap-slide-up text-6xl md:text-5xl lg:text-[6rem] leading-[0.9] -tracking-[0.04em] uppercase">
+          <h1 className="gsap-slide-up text-6xl md:text-5xl lg:text-[5rem] leading-[0.9] -tracking-[0.04em] uppercase">
             Work <br />
             With <br />
             Confidence
@@ -25,7 +25,9 @@ export function HeroSection({ id }) {
           </p>
 
           <div className="gsap-slide-up pt-4">
-            <Button>Get Started</Button>
+            <Button onClick={() => window.open('https://drive.google.com/drive/folders/11yXN9Icjq44XT0lNpshZroMOachoCGY4?usp=share_link', '_blank')}>
+              Download
+            </Button>
           </div>
         </div>
 

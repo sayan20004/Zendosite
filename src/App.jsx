@@ -1,16 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { Navbar } from './components/sections/Navbar'; // Import the new component
+import { Navbar } from './components/sections/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { WhyChooseSection } from './components/sections/WhyChooseSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { ContactSection } from './components/sections/ContactSection';
+import { AboutPage } from './pages/AboutPage';
+import { Loader } from './components/ui/Loader';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function HomePage() {
   const mainRef = useRef(null);
 
   useEffect(() => {
@@ -70,12 +73,26 @@ function App() {
 
   return (
     <main ref={mainRef} className="w-full min-h-screen transition-colors duration-300">
-      <Navbar /> {/* Add Navbar here */}
+      <Navbar />
       <HeroSection id="home" />
       <WhyChooseSection id="why-choose" />
       <AboutSection id="about" />
       <ContactSection id="contact" />
     </main>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Loader />
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

@@ -15,7 +15,7 @@ export function WhyChooseSection({ id }) {
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col gap-16">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          <h2 className="gsap-slide-up text-5xl md:text-7xl lg:text-[6rem] leading-[1] uppercase">
+          <h2 className="gsap-slide-up text-5xl md:text-7xl lg:text-[5rem] leading-[1] uppercase">
             Track Anytime, <br /> Easily Anywhere
           </h2>
           <p className="gsap-slide-up text-xl md:text-2xl font-medium text-brand-black/80">

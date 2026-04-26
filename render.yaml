@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: zendo-backend
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: npm install --production
+    startCommand: node server.js
+    envVars:
+      - key: EMAIL_USER
+        value: tm.zendo@gmail.com
+      - key: EMAIL_PASSWORD
+        value: bxsv bkcp qevc foaa
+      - key: NODE_ENV
+        value: production

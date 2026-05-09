@@ -19,7 +19,7 @@ function HomePage() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray('section');
-      let bgColors = ['#FFD60A', '#C5B8F0', '#FF9966', '#FFD60A']; 
+      let bgColors = ['#E8D5B7', '#E8D5B7', '#E8D5B7', '#E8D5B7'];
 
       sections.forEach((section, i) => {
         ScrollTrigger.create({
@@ -33,12 +33,12 @@ function HomePage() {
 
       // Slide up animations for text
       gsap.utils.toArray('.gsap-slide-up').forEach((elem) => {
-        gsap.fromTo(elem, 
+        gsap.fromTo(elem,
           { y: 50, opacity: 0 },
-          { 
-            y: 0, 
-            opacity: 1, 
-            duration: 1, 
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: elem,
@@ -51,12 +51,12 @@ function HomePage() {
 
       // Fade in animations for visual elements
       gsap.utils.toArray('.gsap-fade-in').forEach((elem) => {
-        gsap.fromTo(elem, 
+        gsap.fromTo(elem,
           { opacity: 0, scale: 0.95 },
-          { 
-            opacity: 1, 
+          {
+            opacity: 1,
             scale: 1,
-            duration: 1.2, 
+            duration: 1.2,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: elem,
@@ -92,6 +92,22 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </Router>
+
+      {/* Sticky Product Hunt Badge — visible on all screens */}
+      <a
+        href="https://www.producthunt.com/products/zendo-4?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-zendo-4"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed z-[999] transition-transform duration-300 hover:scale-105 right-3 bottom-4 sm:bottom-1/4 sm:-translate-y-1/2"
+      >
+        <img
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1142169&theme=dark&t=1778297560393"
+          alt="Zendo - Feature-rich Flutter task manager for daily productivity. | Product Hunt"
+          width="250"
+          height="54"
+          className="rounded-lg shadow-lg w-[180px] sm:w-[250px]"
+        />
+      </a>
     </>
   );
 }

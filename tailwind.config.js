@@ -14,6 +14,9 @@ export default {
         'brand-green': '#00C566',
         'brand-black': '#000000',
         'brand-white': '#FFFFFF',
+        'brand-beige': '#E8D5B7',
+        'brand-beige-light': '#F2E6D0',
+        'brand-amber': '#D4920A',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

@@ -1,5 +1,5 @@
-import { Button } from "./Button";
 import { useState } from "react";
+import { Send } from "lucide-react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -33,9 +33,9 @@ export function ContactForm() {
       });
 
       if (response.ok) {
-        setMessage({ 
-          type: 'success', 
-          text: 'Thank you! Your message has been sent successfully. Check your email for confirmation.' 
+        setMessage({
+          type: 'success',
+          text: 'Thank you! Your message has been sent successfully. Check your email for confirmation.'
         });
         setFormData({
           name: '',
@@ -44,15 +44,15 @@ export function ContactForm() {
         });
       } else {
         const error = await response.json();
-        setMessage({ 
-          type: 'error', 
-          text: error.error || 'Failed to send message. Please try again.' 
+        setMessage({
+          type: 'error',
+          text: error.error || 'Failed to send message. Please try again.'
         });
       }
     } catch (error) {
-      setMessage({ 
-        type: 'error', 
-        text: 'Network error. Please make sure the server is running on port 5000 and try again.' 
+      setMessage({
+        type: 'error',
+        text: 'Network error. Please make sure the server is running and try again.'
       });
       console.error('Error:', error);
     } finally {
@@ -61,70 +61,80 @@ export function ContactForm() {
   };
 
   return (
-    <form 
+    <form
       onSubmit={handleSubmit}
-      className="gsap-slide-up bg-brand-white p-8 md:p-12 rounded-[3rem] border-4 border-brand-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-6"
+      className="bg-white/60 backdrop-blur-sm p-6 md:p-8 rounded-3xl border border-brand-black/5 flex flex-col gap-5"
     >
       {messageState.text && (
-        <div className={`p-4 rounded-2xl border-2 ${
-          messageState.type === 'success' 
-            ? 'bg-green-50 border-green-500 text-green-800' 
-            : 'bg-red-50 border-red-500 text-red-800'
+        <div className={`p-4 rounded-2xl border ${
+          messageState.type === 'success'
+            ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
+            : 'bg-red-50 border-red-200 text-red-800'
         }`}>
-          <p className="font-semibold">{messageState.text}</p>
+          <p className="font-semibold text-sm">{messageState.text}</p>
         </div>
       )}
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="text-lg font-bold ml-2 uppercase tracking-wide">Name</label>
-        <input 
-          type="text" 
-          id="name" 
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="name" className="text-xs font-bold ml-1 uppercase tracking-widest text-brand-black/50">Name</label>
+        <input
+          type="text"
+          id="name"
           placeholder="Your name"
           value={formData.name}
           onChange={handleChange}
           required
           disabled={loading}
-          className="w-full px-6 py-4 rounded-full border-4 border-brand-black bg-brand-white text-lg font-medium focus:outline-none focus:ring-4 focus:ring-brand-yellow/50 transition-shadow placeholder:text-brand-black/30 disabled:opacity-50"
+          className="w-full px-5 py-3.5 rounded-xl border border-brand-black/10 bg-white/70 text-base font-medium focus:outline-none focus:ring-2 focus:ring-brand-black/20 focus:border-brand-black/30 transition-all placeholder:text-brand-black/25 disabled:opacity-50"
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="text-lg font-bold ml-2 uppercase tracking-wide">Email</label>
-        <input 
-          type="email" 
-          id="email" 
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="email" className="text-xs font-bold ml-1 uppercase tracking-widest text-brand-black/50">Email</label>
+        <input
+          type="email"
+          id="email"
           placeholder="you@example.com"
           value={formData.email}
           onChange={handleChange}
           required
           disabled={loading}
-          className="w-full px-6 py-4 rounded-full border-4 border-brand-black bg-brand-white text-lg font-medium focus:outline-none focus:ring-4 focus:ring-brand-yellow/50 transition-shadow placeholder:text-brand-black/30 disabled:opacity-50"
+          className="w-full px-5 py-3.5 rounded-xl border border-brand-black/10 bg-white/70 text-base font-medium focus:outline-none focus:ring-2 focus:ring-brand-black/20 focus:border-brand-black/30 transition-all placeholder:text-brand-black/25 disabled:opacity-50"
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="text-lg font-bold ml-2 uppercase tracking-wide">Message</label>
-        <textarea 
-          id="message" 
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="message" className="text-xs font-bold ml-1 uppercase tracking-widest text-brand-black/50">Message</label>
+        <textarea
+          id="message"
           rows="4"
           placeholder="How can we help you?"
           value={formData.message}
           onChange={handleChange}
           required
           disabled={loading}
-          className="w-full px-6 py-4 rounded-[2rem] border-4 border-brand-black bg-brand-white text-lg font-medium focus:outline-none focus:ring-4 focus:ring-brand-yellow/50 transition-shadow placeholder:text-brand-black/30 resize-none disabled:opacity-50"
+          className="w-full px-5 py-3.5 rounded-xl border border-brand-black/10 bg-white/70 text-base font-medium focus:outline-none focus:ring-2 focus:ring-brand-black/20 focus:border-brand-black/30 transition-all placeholder:text-brand-black/25 resize-none disabled:opacity-50"
         ></textarea>
       </div>
 
-      <div className="pt-4 flex justify-end">
-        <Button 
-          type="submit" 
-          className="w-full md:w-auto"
+      <div className="pt-2">
+        <button
+          type="submit"
           disabled={loading}
+          className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-brand-black text-brand-white font-semibold text-base rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 disabled:opacity-50 disabled:hover:scale-100"
         >
-          {loading ? 'Sending...' : 'Send Message'}
-        </Button>
+          {loading ? (
+            <>
+              <span className="w-4 h-4 border-2 border-brand-white/30 border-t-brand-white rounded-full animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4" />
+              Send Message
+            </>
+          )}
+        </button>
       </div>
     </form>
   );

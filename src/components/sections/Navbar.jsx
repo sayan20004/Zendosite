@@ -28,12 +28,12 @@ export const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 sm:px-6 py-3 sm:py-4 ${
         scrolled ? 'mt-2' : 'mt-0'
       }`}
     >
       <div 
-        className={`max-w-6xl mx-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${
+        className={`max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${
           scrolled 
             ? 'bg-brand-white/80 backdrop-blur-md shadow-lg border border-brand-black/5' 
             : 'bg-transparent'

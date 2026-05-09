@@ -220,7 +220,7 @@ export function HeroSection({ id }) {
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
-              src="https://www.youtube.com/embed/XylGhMEsCeY?autoplay=1&rel=0&modestbranding=1"
+              // src="https://www.youtube.com/embed/XylGhMEsCeY?autoplay=1&rel=0&modestbranding=1"
               title="How Zendo Works"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

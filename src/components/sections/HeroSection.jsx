@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Play, ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react';
-import boltImg from '../../assets/bolt.png';
+import appLogo from '../../assets/bolt.png';
 
 export function HeroSection({ id }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,12 +52,12 @@ export function HeroSection({ id }) {
         </h1>
       </div>
 
-      {/* ═══════════ BOLT ICON — Center ═══════════ */}
+      {/* ═══════════ APP LOGO — Center ═══════════ */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
         <img
-          src={boltImg}
-          alt="Zendo Bolt"
-          className="w-[180px] sm:w-[280px] md:w-[380px] lg:w-[420px] xl:w-[500px] h-auto object-contain drop-shadow-2xl hero-bolt-float"
+          src={appLogo}
+          alt="Zendo App Logo"
+          className="w-[160px] sm:w-[240px] md:w-[320px] lg:w-[380px] xl:w-[440px] h-auto object-contain drop-shadow-2xl hero-bolt-float rounded-[2rem] sm:rounded-[3rem]"
         />
       </div>
 
